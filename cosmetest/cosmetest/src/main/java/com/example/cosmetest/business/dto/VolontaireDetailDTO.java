@@ -1,9 +1,9 @@
 package com.example.cosmetest.business.dto;
 
-
 /**
  * DTO détaillé pour l'entité Volontaire
- * Contient tous les champs de l'entité pour les opérations nécessitant des informations complètes
+ * Contient tous les champs de l'entité pour les opérations nécessitant des
+ * informations complètes
  */
 public class VolontaireDetailDTO extends VolontaireDTO {
 
@@ -156,6 +156,9 @@ public class VolontaireDetailDTO extends VolontaireDTO {
     private String mapyeux;
     private String maplevres;
     private String mapsourcils;
+
+    // notes
+    private Integer notes;
 
     // Constructeurs
     public VolontaireDetailDTO() {
@@ -1089,5 +1092,14 @@ public class VolontaireDetailDTO extends VolontaireDTO {
 
     public void setMapsourcils(String mapsourcils) {
         this.mapsourcils = mapsourcils;
+    }
+
+    // Notes
+    public Integer getNotes() {
+        return notes;
+    }
+
+    public void setNotes(Integer notes) {
+        this.notes = notes;
     }
 }

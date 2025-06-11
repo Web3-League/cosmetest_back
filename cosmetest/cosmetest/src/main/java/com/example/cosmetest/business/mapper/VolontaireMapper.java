@@ -249,6 +249,7 @@ public class VolontaireMapper {
         dto.setMapyeux(volontaire.getMapyeux());
         dto.setMaplevres(volontaire.getMaplevres());
         dto.setMapsourcils(volontaire.getMapsourcils());
+        dto.setNotes(volontaire.getNotes());
 
         return dto;
     }
@@ -463,6 +464,7 @@ public class VolontaireMapper {
         volontaire.setMapyeux(dto.getMapyeux());
         volontaire.setMaplevres(dto.getMaplevres());
         volontaire.setMapsourcils(dto.getMapsourcils());
+        volontaire.setNotes(dto.getNotes());
 
         return volontaire;
     }
@@ -492,7 +494,8 @@ public class VolontaireMapper {
     }
 
     /**
-     * Met à jour une entité Volontaire existante avec les données d'un VolontaireDTO
+     * Met à jour une entité Volontaire existante avec les données d'un
+     * VolontaireDTO
      *
      * @param entity l'entité à mettre à jour
      * @param dto    les données à appliquer
@@ -503,43 +506,63 @@ public class VolontaireMapper {
             return entity;
         }
 
-        if (dto.getTitreVol() != null) entity.setTitreVol(dto.getTitreVol());
-        if (dto.getNomVol() != null) entity.setNomVol(dto.getNomVol());
-        if (dto.getPrenomVol() != null) entity.setPrenomVol(dto.getPrenomVol());
-        if (dto.getAdresseVol() != null) entity.setAdresseVol(dto.getAdresseVol());
-        if (dto.getCpVol() != null) entity.setCpVol(dto.getCpVol());
-        if (dto.getVilleVol() != null) entity.setVilleVol(dto.getVilleVol());
-        if (dto.getTelDomicileVol() != null) entity.setTelDomicileVol(dto.getTelDomicileVol());
-        if (dto.getTelPortableVol() != null) entity.setTelPortableVol(dto.getTelPortableVol());
-        if (dto.getEmailVol() != null) entity.setEmailVol(dto.getEmailVol());
-        if (dto.getSexe() != null) entity.setSexe(dto.getSexe());
+        if (dto.getTitreVol() != null)
+            entity.setTitreVol(dto.getTitreVol());
+        if (dto.getNomVol() != null)
+            entity.setNomVol(dto.getNomVol());
+        if (dto.getPrenomVol() != null)
+            entity.setPrenomVol(dto.getPrenomVol());
+        if (dto.getAdresseVol() != null)
+            entity.setAdresseVol(dto.getAdresseVol());
+        if (dto.getCpVol() != null)
+            entity.setCpVol(dto.getCpVol());
+        if (dto.getVilleVol() != null)
+            entity.setVilleVol(dto.getVilleVol());
+        if (dto.getTelDomicileVol() != null)
+            entity.setTelDomicileVol(dto.getTelDomicileVol());
+        if (dto.getTelPortableVol() != null)
+            entity.setTelPortableVol(dto.getTelPortableVol());
+        if (dto.getEmailVol() != null)
+            entity.setEmailVol(dto.getEmailVol());
+        if (dto.getSexe() != null)
+            entity.setSexe(dto.getSexe());
 
         // Conversion de LocalDate en Date SQL
         if (dto.getDateNaissance() != null) {
             entity.setDateNaissance(Date.valueOf(dto.getDateNaissance()));
         }
 
-        if (dto.getArchive() != null) entity.setArchive(dto.getArchive());
-        if (dto.getCommentairesVol() != null) entity.setCommentairesVol(dto.getCommentairesVol());
-        if (dto.getEthnie() != null) entity.setEthnie(dto.getEthnie());
-        if (dto.getSousEthnie() != null) entity.setSousEthnie(dto.getSousEthnie());
-        if (dto.getPhototype() != null) entity.setPhototype(dto.getPhototype());
-        if (dto.getTypePeauVisage() != null) entity.setTypePeauVisage(dto.getTypePeauVisage());
-        if (dto.getPoids() != null) entity.setPoids(dto.getPoids());
-        if (dto.getTaille() != null) entity.setTaille(dto.getTaille());
+        if (dto.getArchive() != null)
+            entity.setArchive(dto.getArchive());
+        if (dto.getCommentairesVol() != null)
+            entity.setCommentairesVol(dto.getCommentairesVol());
+        if (dto.getEthnie() != null)
+            entity.setEthnie(dto.getEthnie());
+        if (dto.getSousEthnie() != null)
+            entity.setSousEthnie(dto.getSousEthnie());
+        if (dto.getPhototype() != null)
+            entity.setPhototype(dto.getPhototype());
+        if (dto.getTypePeauVisage() != null)
+            entity.setTypePeauVisage(dto.getTypePeauVisage());
+        if (dto.getPoids() != null)
+            entity.setPoids(dto.getPoids());
+        if (dto.getTaille() != null)
+            entity.setTaille(dto.getTaille());
 
         // Conversion de LocalDate en Date SQL
         if (dto.getDateI() != null) {
             entity.setDateI(Date.valueOf(dto.getDateI()));
         }
 
-        if (dto.getSanteCompatible() != null) entity.setSanteCompatible(dto.getSanteCompatible());
+        if (dto.getSanteCompatible() != null)
+            entity.setSanteCompatible(dto.getSanteCompatible());
 
         return entity;
     }
 
     /**
-     * Met à jour une entité Volontaire existante avec les données d'un VolontaireDetailDTO
+     * Met à jour une entité Volontaire existante avec les données d'un
+     * VolontaireDetailDTO
      *
      * @param entity l'entité à mettre à jour
      * @param dto    les données détaillées à appliquer
@@ -554,24 +577,39 @@ public class VolontaireMapper {
         entity = updateEntityFromDTO(entity, dto);
 
         // Mettre à jour les champs spécifiques au DTO détaillé
-        if (dto.getCarnation() != null) entity.setCarnation(dto.getCarnation());
-        if (dto.getBronzage() != null) entity.setBronzage(dto.getBronzage());
-        if (dto.getCoupsDeSoleil() != null) entity.setCoupsDeSoleil(dto.getCoupsDeSoleil());
-        if (dto.getExpositionSolaire() != null) entity.setExpositionSolaire(dto.getExpositionSolaire());
-        if (dto.getSensibiliteCutanee() != null) entity.setSensibiliteCutanee(dto.getSensibiliteCutanee());
+        if (dto.getCarnation() != null)
+            entity.setCarnation(dto.getCarnation());
+        if (dto.getBronzage() != null)
+            entity.setBronzage(dto.getBronzage());
+        if (dto.getCoupsDeSoleil() != null)
+            entity.setCoupsDeSoleil(dto.getCoupsDeSoleil());
+        if (dto.getExpositionSolaire() != null)
+            entity.setExpositionSolaire(dto.getExpositionSolaire());
+        if (dto.getSensibiliteCutanee() != null)
+            entity.setSensibiliteCutanee(dto.getSensibiliteCutanee());
 
         // Zones de sécheresse
-        if (dto.getSecheresseLevres() != null) entity.setSecheresseLevres(dto.getSecheresseLevres());
-        if (dto.getSecheresseCou() != null) entity.setSecheresseCou(dto.getSecheresseCou());
+        if (dto.getSecheresseLevres() != null)
+            entity.setSecheresseLevres(dto.getSecheresseLevres());
+        if (dto.getSecheresseCou() != null)
+            entity.setSecheresseCou(dto.getSecheresseCou());
         if (dto.getSecheressePoitrineDecollete() != null)
             entity.setSecheressePoitrineDecollete(dto.getSecheressePoitrineDecollete());
-        if (dto.getSecheresseVentreTaille() != null) entity.setSecheresseVentreTaille(dto.getSecheresseVentreTaille());
+        if (dto.getSecheresseVentreTaille() != null)
+            entity.setSecheresseVentreTaille(dto.getSecheresseVentreTaille());
         if (dto.getSecheresseFessesHanches() != null)
             entity.setSecheresseFessesHanches(dto.getSecheresseFessesHanches());
-        if (dto.getSecheresseBras() != null) entity.setSecheresseBras(dto.getSecheresseBras());
-        if (dto.getSecheresseMains() != null) entity.setSecheresseMains(dto.getSecheresseMains());
-        if (dto.getSecheresseJambes() != null) entity.setSecheresseJambes(dto.getSecheresseJambes());
-        if (dto.getSecheressePieds() != null) entity.setSecheressePieds(dto.getSecheressePieds());
+        if (dto.getSecheresseBras() != null)
+            entity.setSecheresseBras(dto.getSecheresseBras());
+        if (dto.getSecheresseMains() != null)
+            entity.setSecheresseMains(dto.getSecheresseMains());
+        if (dto.getSecheresseJambes() != null)
+            entity.setSecheresseJambes(dto.getSecheresseJambes());
+        if (dto.getSecheressePieds() != null)
+            entity.setSecheressePieds(dto.getSecheressePieds());
+
+        if (dto.getNotes() != null)
+            entity.setNotes(dto.getNotes());
 
         // Et ainsi de suite pour tous les autres champs...
         // Trop de code à inclure, mais le principe est le même pour tous les champs

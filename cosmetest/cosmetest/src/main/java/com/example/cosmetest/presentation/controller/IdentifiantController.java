@@ -164,8 +164,8 @@ public class IdentifiantController {
      * @param email l'email à vérifier
      * @return true si l'email existe, false sinon
      */
-    @GetMapping("/check-email")
-    public ResponseEntity<Boolean> checkEmailExists(@RequestParam String email) {
+    @GetMapping("/check-email/{email}")
+    public ResponseEntity<Boolean> checkEmailExists(@PathVariable String email) {
         boolean exists = identifiantService.emailExiste(email);
         return ResponseEntity.ok(exists);
     }

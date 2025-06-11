@@ -10,7 +10,7 @@ import jakarta.persistence.*;
 
 @Entity // Indique que cette classe est une entité JPA
 @Table(name = "volontaire", indexes = {
-		@Index(name="idx_fulltext_vol", columnList = "nom_vol, prenom_vol, tel_domicile_vol, tel_portable_vol, email_vol")
+		@Index(name = "idx_fulltext_vol", columnList = "nom_vol, prenom_vol, tel_domicile_vol, tel_portable_vol, email_vol")
 }) // Permet de spécifier le nom de la table
 public class Volontaire implements java.io.Serializable {
 
@@ -20,34 +20,34 @@ public class Volontaire implements java.io.Serializable {
 	private Integer idVol;
 	@Column(name = "TITRE_VOL")
 	private String titreVol;
-	
+
 	@Column(name = "NOM_VOL", nullable = false)
 	private String nomVol;
-	
+
 	@Column(name = "PRENOM_VOL", nullable = false)
 	private String prenomVol;
-	
+
 	@Column(name = "ADRESSE_VOL")
 	private String adresseVol;
-	
+
 	@Column(name = "CP_VOL")
 	private String cpVol;
-	
+
 	@Column(name = "VILLE_VOL")
 	private String villeVol;
-	
+
 	@Column(name = "TEL_DOMICILE_VOL")
 	private Integer telDomicileVol;
-	
+
 	@Column(name = "TEL_PORTABLE_VOL")
 	private Integer telPortableVol;
-	
+
 	@Column(name = "EMAIL_VOL")
 	private String emailVol;
-	
+
 	@Column(name = "SEXE")
 	private String sexe;
-	
+
 	@Column(name = "DATE_NAISSANCE")
 	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private Date dateNaissance;
@@ -179,6 +179,8 @@ public class Volontaire implements java.io.Serializable {
 	private String mapyeux;
 	private String maplevres;
 	private String mapsourcils;
+	@Column(name = "notes")
+	private Integer notes;
 
 	public Volontaire() {
 	}
@@ -223,7 +225,7 @@ public class Volontaire implements java.io.Serializable {
 			Float scoreComlevg, Float scorePtose, Float ita, String originePere, String origineMere,
 			String bouffeeChaleurMenaupose, Integer poids, Integer taille, String sousEthnie, Date dateI, String levres,
 			String yeux, String cernesVasculaires, String cils, String nbCigarettesJour, String caracteristiqueSourcils,
-			long hauteurSiege, String mapyeux, String maplevres, String mapsourcils) {
+			long hauteurSiege, String mapyeux, String maplevres, String mapsourcils, Integer notes) {
 		this.titreVol = titreVol;
 		this.nomVol = nomVol;
 		this.prenomVol = prenomVol;
@@ -361,6 +363,7 @@ public class Volontaire implements java.io.Serializable {
 		this.mapyeux = mapyeux;
 		this.maplevres = maplevres;
 		this.mapsourcils = mapsourcils;
+		this.notes = notes;
 	}
 
 	public Integer getIdVol() {
@@ -456,7 +459,7 @@ public class Volontaire implements java.io.Serializable {
 	 *
 	 * @return la date de naissance au format LocalDate
 	 */
-// Si vous avez besoin de convertir java.sql.Date en java.time.LocalDate
+	// Si vous avez besoin de convertir java.sql.Date en java.time.LocalDate
 	public LocalDate getDateNaissance() {
 		if (this.dateNaissance == null) {
 			return null;
@@ -1477,6 +1480,14 @@ public class Volontaire implements java.io.Serializable {
 
 	public void setMapsourcils(String mapsourcils) {
 		this.mapsourcils = mapsourcils;
+	}
+
+	public Integer getNotes() {
+		return notes;
+	}
+
+	public void setNotes(Integer notes) {
+		this.notes = notes;
 	}
 
 }
